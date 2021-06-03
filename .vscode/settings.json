@@ -1,0 +1,11 @@
+{
+    "cSpell.words": [
+        "hgetall",
+        "hset",
+        "sadd",
+        "smembers"
+    ],
+    "python.linting.flake8Enabled": false,
+    "python.linting.pylintEnabled": true,
+    "python.linting.enabled": true
+}
