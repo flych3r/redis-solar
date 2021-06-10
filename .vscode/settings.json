@@ -3,9 +3,16 @@
         "hgetall",
         "hset",
         "sadd",
-        "smembers"
+        "smembers",
+        "zadd",
+        "zcard",
+        "zrange",
+        "zrank",
+        "zremrangebyscore",
+        "zscore"
     ],
     "python.linting.flake8Enabled": false,
     "python.linting.pylintEnabled": true,
-    "python.linting.enabled": true
+    "python.linting.enabled": true,
+    "python.pythonPath": "env/bin/python"
 }

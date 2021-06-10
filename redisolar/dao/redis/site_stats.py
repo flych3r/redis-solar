@@ -66,15 +66,13 @@ class SiteStatsDaoRedis(SiteStatsDaoBase, RedisDaoBase):
         pipeline.hincrby(key, SiteStats.COUNT, 1)
         pipeline.expire(key, WEEK_SECONDS)
 
-        script = CompareAndUpdateScript(self.redis)
-
-        script.update_if_greater(
+        self.compare_and_update_script.update_if_greater(
             pipeline, key, SiteStats.MAX_WH, meter_reading.wh_generated
         )
-        script.update_if_less(
+        self.compare_and_update_script.update_if_less(
             pipeline, key, SiteStats.MIN_WH, meter_reading.wh_generated
         )
-        script.update_if_greater(
+        self.compare_and_update_script.update_if_greater(
             pipeline, key, SiteStats.MAX_CAPACITY, meter_reading.wh_generated
         )
         # END Challenge #3

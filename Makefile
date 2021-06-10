@@ -34,9 +34,10 @@ lint: env
 
 clean:
 	rm -rf env
-	find . -type f -name '*.py[co]' -delete -o -type d -name __pycache__ -delete
+	rm -rf *.egg-inf
 	rm -rf .mypy_cache
 	rm -rf .pytest_cache
+	find . -type f -name '*.py[co]' -delete -o -type d -name __pycache__ -delete
 
 dev: env
 	. env/bin/activate; FLASK_ENV=development FLASK_APP=$(APP) FLASK_DEBUG=1 flask run --port=$(PORT) --host=0.0.0.0
